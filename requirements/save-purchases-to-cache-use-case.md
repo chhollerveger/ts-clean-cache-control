@@ -8,7 +8,8 @@
 5. System does not return error
 
 > ## Exception - Error clearing cache data
-1. System returns error
+1. System does not write new Cache data
+2. System returns error
 
 > ## Exception - Error saving cache data
 1. System returns error
