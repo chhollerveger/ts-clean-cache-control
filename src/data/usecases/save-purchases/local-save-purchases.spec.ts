@@ -1,5 +1,5 @@
 import CacheStore from "@/data/protocols/cache/cache-store";
-import { SavePurchases } from "@/domain";
+import { SavePurchases } from "@/domain/usecases";
 import LocalSavePurchases from "./local-save-purchases";
 
 class CacheStoreSpy implements CacheStore {
