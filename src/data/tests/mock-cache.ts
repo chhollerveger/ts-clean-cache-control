@@ -1,4 +1,4 @@
-import { LoadPurchases, SavePurchases } from "@/domain/usecases";
+import { SavePurchases } from "@/domain/usecases";
 import CacheStore from "../protocols/cache/cache-store";
 
 export class CacheStoreSpy implements CacheStore {
@@ -51,6 +51,12 @@ export class CacheStoreSpy implements CacheStore {
       throw new Error();
     });
   }
+}
+
+export const getCacheExpirationDate = (timestamp: Date): Date => {
+  const maxCacheAge = new Date(timestamp);
+  maxCacheAge.setDate(maxCacheAge.getDate() - 3);
+  return maxCacheAge;
 }
 
 export namespace CacheStoreSpy {
