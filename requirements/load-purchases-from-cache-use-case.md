@@ -7,6 +7,10 @@
 4. System creates a shopping list from Cache data
 5. System returns the shopping list
 
+> ## Exception - Error loading data from cache
+1. System clears cache
+2. System returns an empty list
+
 > ## Exception - Cache expired
 1. System clears cache
 2. System returns an empty list
