@@ -21,12 +21,22 @@ describe('LocalLoadPurchases', () => {
     expect(cacheStore.actions).toEqual([]);
   });
 
-
   test('Should delete cache if load fails', () => {
     const { cacheStore, sut } = makeSut();
     cacheStore.simulateFetchError();
     sut.validate();
     expect(cacheStore.actions).toEqual([CacheStoreSpy.Action.fetch, CacheStoreSpy.Action.delete]);
     expect(cacheStore.deleteKey).toBe('purchases');
+  });
+
+  test('Should has no side effect if load succeds', () => {
+    const currentDate = new Date();
+    const timestamp = getCacheExpirationDate(currentDate);
+    timestamp.setSeconds(currentDate.getSeconds() + 1);
+    const { cacheStore, sut } = makeSut(currentDate);
+    cacheStore.fetchResult = { timestamp }
+    sut.validate();
+    expect(cacheStore.actions).toEqual([CacheStoreSpy.Action.fetch]);
+    expect(cacheStore.fetchKey).toBe('purchases');
   });
 })
