@@ -21,8 +21,16 @@ describe('LocalLoadPurchases', () => {
     expect(cacheStore.actions).toEqual([]);
   });
 
-  test('Should ncall correct key on load', async () => {
+  test('Should call correct key on load', async () => {
     const { cacheStore, sut } = makeSut();
+    await sut.loadAll();
+    expect(cacheStore.actions).toEqual([CacheStoreSpy.Action.fetch]);
+    expect(cacheStore.fetchKey).toBe('purchases');
+  });
+
+  test('Should return empty list if load fails', async () => {
+    const { cacheStore, sut } = makeSut();
+    cacheStore.simulateFetchError();
     await sut.loadAll();
     expect(cacheStore.actions).toEqual([CacheStoreSpy.Action.fetch]);
     expect(cacheStore.fetchKey).toBe('purchases');
