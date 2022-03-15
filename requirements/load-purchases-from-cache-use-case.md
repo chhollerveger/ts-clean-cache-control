@@ -9,7 +9,7 @@
 
 > ## Exception - Cache expired
 1. System clears cache
-2. System returns error
+2. System returns an empty list
 
 > ## Exception - Cache empty
-1. System returns error
+1. System returns an empty list
