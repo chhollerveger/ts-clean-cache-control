@@ -1,5 +1,5 @@
 import { CacheStoreSpy, mockPurchases } from "@/data/tests";
-import LocalLoadPurchases from "./local-load-purchases";
+import { LocalLoadPurchases } from "./local-load-purchases";
 
 type SutTypes = {
   sut: LocalLoadPurchases;

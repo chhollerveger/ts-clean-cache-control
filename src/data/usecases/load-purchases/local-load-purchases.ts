@@ -1,8 +1,8 @@
 import { CachePolicy } from "@/data/protocols/cache";
-import CacheStore from "@/data/protocols/cache/cache-store";
+import { CacheStore } from "@/data/protocols/cache";
 import { SavePurchases, LoadPurchases } from "@/domain/usecases";
 
-export default class LocalLoadPurchases implements SavePurchases, LoadPurchases {
+export class LocalLoadPurchases implements SavePurchases, LoadPurchases {
 
   private readonly key = 'purchases';
 
